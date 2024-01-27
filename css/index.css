@@ -506,7 +506,20 @@ body{
     padding: 30px;
     padding-top: 10px;
     border-radius: 40px;
+    animation: bounceInDown 3s ease-in-out infinite;
 }
+
+@keyframes bounceInDown {
+    0% {
+       transform: translateY(0);
+    }
+    50% {
+       transform: translateY(-30px);
+    }
+    100% {
+       transform: translateY(0);
+    }
+ } 
 
 #about-content a{
     text-decoration: none;
