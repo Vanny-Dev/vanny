@@ -1255,9 +1255,12 @@ form button.circular-border {
     0% {
       transform: rotate(0);
     }
-    100% {
-      transform: rotate(360deg);
+    70% {
+      transform: rotate(720deg);
     }
+    100% {
+        transform: rotate(1800deg);
+      }
   }
 .contact-info-header{
     position: relative;
