@@ -696,12 +696,14 @@ form.addEventListener('submit', function (event) {
 
             emailjs.send(serviceID, templateID, params)
                 .then(res => {
-                    send.textContent = "Successfully sent ✅"
+                    send.textContent = "Message has been sent ✅"
                     //alert('Thank you, ' + params['sendername'] + '! Your message has been sent');
 
                     setTimeout(() => {
                         send.textContent = ''
                     }, 5000)
+
+			form.reset()
                 })
                 .catch(error => {
                     send.textContent = 'Message not sent.\n\n' + error;
