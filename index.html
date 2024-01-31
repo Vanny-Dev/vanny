@@ -677,6 +677,7 @@
           var email = document.getElementById('email').value;
           var subject = document.getElementById('subject').value;
           var message = document.getElementById('message').value;
+          var audio = new Audio('files/sounds/soundEffect.mp3');
 
           if (!name || !email || !subject || !message) {
             alert('Please fill out all required fields.');
@@ -700,10 +701,14 @@
               // send.textContent = 'Message has been sent ✅';
 
               setTimeout(() => {
+                audio.play()
+              }, 2650)
+              setTimeout(() => {
                 //send.textContent = '';
                 submitButton.innerHTML = 'Submit';
                 submitButton.classList.remove('circular-border');
                 submitButton.style.animation = '';
+                
                 form.reset();
               }, 4000);
 
