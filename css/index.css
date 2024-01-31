@@ -1848,6 +1848,19 @@ For devices with smaller width like mobile phone
             form button:hover{
               opacity: 1;
             }
+            form button.circular-border {
+                border-radius: 50%;
+                padding: 8px 15.6px;
+                font-family: poppins;
+                font-size: 20px;
+                color: whitesmoke;
+                background: #04a777;
+                margin: 20px;
+                cursor: pointer;
+                border: none;
+                animation: rotateCheck 4s ease;
+                
+              }
             .contact-info-header{
                 position: relative;
                 z-index: 2;
