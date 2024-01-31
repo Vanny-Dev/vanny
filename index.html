@@ -659,58 +659,61 @@
     </script>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
         const form = document.getElementById('myForm');
-        // Add a submit event listener to the form
-form.addEventListener('submit', function (event) {
-            // Prevent the default form submission behavior
-            event.preventDefault();
+        const submitButton = document.getElementById('submit');
+        // const send = document.getElementById('sendMessage');
 
-            // Your Email.js code here //apikey:62-5ufukdgYo-WQSo
-            (function () {
-                emailjs.init("62-5ufukdgYo-WQSo");
-            })();
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
 
-            var serviceID = "service_ponksln";
-            var templateID = "template_xwsnmrd";
-            var send = document.querySelector("#sendMessage");
+          emailjs.init('-g6Vl6ozZBdmFX5gZ');
 
-            var name = document.querySelector('#name').value;
-            var email = document.querySelector('#email').value;
-            var subject = document.querySelector('#subject').value;
-            var message = document.querySelector('#message').value;
+          var serviceID = 'service_ez75bke';
+          var templateID = 'template_fzuaugk';
 
-            if (!name || !email || !subject || !message) {
-                    alert('Please fill out all required fields.');
-                    return; // Stop execution if validation fails
-                }
+          var name = document.getElementById('name').value;
+          var email = document.getElementById('email').value;
+          var subject = document.getElementById('subject').value;
+          var message = document.getElementById('message').value;
 
-            var params = {
-                sendername: name,
-                senderemail: email,
-                subject: subject,
-                message: message
-            };
+          if (!name || !email || !subject || !message) {
+            alert('Please fill out all required fields.');
+            return;
+          }
 
-            emailjs.send(serviceID, templateID, params)
-                .then(res => {
-                    send.textContent = "Message has been sent ✅"
-                    //alert('Thank you, ' + params['sendername'] + '! Your message has been sent');
+          var params = {
+            sendername: name,
+            senderemail: email,
+            subject: subject,
+            message: message,
+          };
 
-                    setTimeout(() => {
-                        send.textContent = ''
-                    }, 5000)
+          submitButton.innerHTML = '<div class="check-mark" style="font-weight: bolder;">&#10003;</div>';
+          submitButton.classList.add('circular-border');
+          submitButton.style.transition = 'expandCircle 0.5s ease-in-out forwards';
 
-			form.reset()
-                })
-                .catch(error => {
-                    send.textContent = 'Message not sent.\n\n' + error;
-                    console.error('Error sending email: ', error);
-                });
+          emailjs
+            .send(serviceID, templateID, params)
+            .then((res) => {
+              // send.textContent = 'Message has been sent ✅';
+
+              setTimeout(() => {
+                //send.textContent = '';
+                submitButton.innerHTML = 'Submit';
+                submitButton.classList.remove('circular-border');
+                submitButton.style.animation = '';
+                form.reset();
+              }, 4000);
+
+            })
+            .catch((error) => {
+              send.textContent = 'Message not sent.\n\n' + error;
+              console.error('Error sending email: ', error);
+            });
         });
-    });
-</script>
+      });
+    </script>
 </body>
 </html>
