@@ -700,11 +700,12 @@
             .then((res) => {
               // send.textContent = 'Message has been sent ✅';
 
-              setTimeout(() => {
-                audio.play()
-              }, 2650)
+              // setTimeout(() => {
+              //   audio.play()
+              // }, 2650)
               setTimeout(() => {
                 //send.textContent = '';
+		audio.play()
                 submitButton.innerHTML = 'Submit';
                 submitButton.classList.remove('circular-border');
                 submitButton.style.animation = '';
